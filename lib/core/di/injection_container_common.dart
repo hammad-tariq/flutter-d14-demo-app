@@ -11,6 +11,7 @@ import '../logger/pretty_dio_logger.dart';
 import '../network/network_client.dart';
 import '../network/network_info.dart';
 import 'injection_container_cache.dart';
+import 'injection_container_presentation.dart';
 
 final serviceLocator = GetIt.I;
 
@@ -96,4 +97,5 @@ Future<void> initDI() async {
       firebaseLogger: serviceLocator()));
 
   serviceLocator.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl());
+
 }

@@ -15,32 +15,29 @@ class AppBootStrapWidget extends StatefulWidget {
 }
 
 class AppBootStrapWidgetState extends State<AppBootStrapWidget> {
-  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  static FirebaseAnalyticsObserver observer =
-      FirebaseAnalyticsObserver(analytics: analytics);
-
   @override
   void initState() {
     super.initState();
-    _initializeFlutterFire();
+    // TODO: Commenting this for now, as we don't have Firebase project.
+    // _initializeFlutterFire();
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorObservers: [observer],
       navigatorKey: RouteNavigator.navigatorKey,
       onGenerateRoute: RouteNavigator.generateNamedRoute,
       routes: RouteNavigator.routesList,
       // TODO: implement Route navigation.
       onGenerateInitialRoutes: RouteNavigator.defaultGenerateInitialRoutes,
-      initialRoute: RoutesList.initialRoute,
+      initialRoute: RoutesList.homeRoute,
       debugShowCheckedModeBanner: false,
     );
   }
 
   // Define an async function to
   // initialize FlutterFire
+  // TODO: Complete Firebase project configuration.
   Future<void> _initializeFlutterFire() async {
     // Wait for Firebase to initialize
     if (kTestingCrashlytics) {

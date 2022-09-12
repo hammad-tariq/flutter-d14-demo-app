@@ -15,7 +15,10 @@ class HomePageState extends State<HomePage> {
       home: Scaffold(
         body: Container(
           child: Center(
-            child: Text('Home page UI to be updated'),
+            child: Text(
+              'Home page UI to be updated',
+              style: TextStyle(color: Colors.blue),
+            ),
           ),
         ),
       ),
