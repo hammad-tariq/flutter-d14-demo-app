@@ -11,6 +11,7 @@ class HomeRemoteDatasource {
   Future<dynamic> getGeekEventsApi(String param) async {
     var response = await networkClient.invoke('', RequestType.get);
     if (response.statusCode == 200 || response.statusCode == 201) {
+      return response.data;
     } else {
       throw ServerException(
           dioError: DioError(

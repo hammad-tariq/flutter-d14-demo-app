@@ -14,7 +14,10 @@ class RouteNavigator {
 
   static final routesList = {
     // TODO: ADD REMAINING APPLICATION ROUTES.
-    RoutesList.homeRoute: (context) => HomePage(),
+    RoutesList.homeRoute: (context) => BlocProvider<HomeCubit>(
+          create: (context) => serviceLocator<HomeCubit>(),
+          child: const HomePage(),
+        ),
   };
 
   static Future<dynamic>? pushNamed<Arguments>(
@@ -51,7 +54,7 @@ class RouteNavigator {
         {
           page = BlocProvider<HomeCubit>(
               create: (context) => serviceLocator<HomeCubit>(),
-              child: HomePage());
+              child: const HomePage());
           break;
         }
 

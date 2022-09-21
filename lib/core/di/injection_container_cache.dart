@@ -20,7 +20,7 @@ Future<void> initCacheDI() async {
 
   if (Platform.isIOS || Platform.isAndroid || Platform.isMacOS) {
     database = await openDatabase(
-      join(await getDatabasesPath(), "demoapp14.db"),
+      join(await getDatabasesPath(), "demoapp_d14.db"),
       onCreate: _onCreateDB,
       version: 3,
     );
