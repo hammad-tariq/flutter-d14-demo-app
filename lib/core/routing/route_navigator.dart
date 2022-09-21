@@ -30,6 +30,10 @@ class RouteNavigator {
     navigatorKey.currentState?.pop(data);
   }
 
+  static dynamic getArguments(BuildContext context) {
+    return ModalRoute.of(context)!.settings.arguments;
+  }
+
   static Future<dynamic>? pushRepalcementNamed<Arguments>(
       {required String routeName, Arguments? arguments}) {
     return navigatorKey.currentState
