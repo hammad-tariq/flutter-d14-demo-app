@@ -11,7 +11,6 @@ import '../logger/pretty_dio_logger.dart';
 import '../network/network_client.dart';
 import '../network/network_info.dart';
 import 'injection_container_cache.dart';
-import 'injection_container_presentation.dart';
 
 final serviceLocator = GetIt.I;
 
@@ -42,9 +41,8 @@ Future<void> initDI() async {
       receiveTimeout: 30000,
       // Default connect timeout
       connectTimeout: 30000,
-      baseUrl: "www.google.com",
-      contentType: 'application/json',
-      headers: {'Content-Type': 'application/json'},
+      baseUrl: "http://platform.seatgeek.com/",
+      contentType: Headers.jsonContentType,
       maxRedirects: 2);
 
   _dio.options = baseOptions;
@@ -97,5 +95,4 @@ Future<void> initDI() async {
       firebaseLogger: serviceLocator()));
 
   serviceLocator.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl());
-
 }

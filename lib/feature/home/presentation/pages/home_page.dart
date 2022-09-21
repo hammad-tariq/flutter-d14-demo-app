@@ -1,7 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:demo/feature/home/presentation/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return HomePageState();
@@ -13,13 +16,25 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Container(
-          child: Center(
-            child: Text(
-              'Home page UI to be updated',
-              style: TextStyle(color: Colors.blue),
-            ),
-          ),
+        body: BlocConsumer<HomeCubit, HomeState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            if (state.status == HomeStatus.initial ||
+                state.status == HomeStatus.loading) {
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: Colors.blueAccent,
+                ),
+              );
+            } else if (state.status == HomeStatus.failure) {
+              return const Center(
+                child: Text('An error occurred while loading data'),
+              );
+            } else {
+              // This is to show data in case of successful response from the API.
+              return Container();
+            }
+          },
         ),
       ),
     );

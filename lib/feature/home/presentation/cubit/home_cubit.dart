@@ -4,5 +4,5 @@ import 'package:equatable/equatable.dart';
 part 'home_state.dart';
 
 class HomeCubit extends BaseCubit<HomeState> {
-  HomeCubit() : super(HomeState());
+  HomeCubit() : super(const HomeState());
 }
